@@ -16,65 +16,34 @@
 #    You should have received a copy of the GNU General Public License
 #    along with nexdatas.  If not, see <http://www.gnu.org/licenses/>.
 ## \file setup.py
-# nxsconfigserver installer 
+# nxsconfigserver-db installer 
 
 """ setup.py for NXS configuration server """
 
 import os
 from distutils.core import setup
 
-## package name
-NXS = "nxsconfigserver"
-## nxs imported package
-INXS = __import__(NXS)
-
-
-#__requires__ = 'nextdata ==%s' % INXS.__version__
 
 ## reading a file
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-## required files
-required = [
-    'numpy (>=1.5.0)',
-    'PyTango (>=7.2.2)',
-    'pninx (>=4.0.2)'
-#    'libpninx (>=0.1.2)'
-#   'pninx-python (>=0.1.2)'
-#   'libpninx-python (>=0.1.2)'
-#   'libpninx-python (>=0.1.2)'
-    ]
 
 ## metadata for distutils
 SETUPDATA = dict(
-    name = "nexdatas.configserver",
-    version = INXS.__version__,
-    author = "Jan Kotanski, Eugen Wintersberger , Halil Pasic",
-    author_email = "jankotan@gmail.com, eugen.wintersberger@gmail.com, " \
-        + "halil.pasic@gmail.com",
-    description = ("Configuration Server for Nexus Data Writer"),
+    name = "nexdatas.configserver-db",
+    version = '1.6.1',
+    author = "Jan Kotanski",
+    author_email = "jankotan@gmail.com",
+    description = ("Configuration Server  DataBase"),
     license = "GNU GENERAL PUBLIC LICENSE v3",
     keywords = "configuration MySQL writer Tango server nexus data",
     url = "http://code.google.com/p/nexdatas/",
-    packages=[NXS],
-    requires=required,
-    scripts = ['NXSConfigServer.py', 'NXSConfigServer'],
     data_files=[('share/python-nxsconfigserver', ['conf/my.cnf']),
                 ('share/python-nxsconfigserver', ['conf/mysql_create.sql'])
                 ],
     long_description= read('README')
 )
-
-## metadata for setuptools
-#SETUPTOOLSDATA= dict(
-#    include_package_data = True,
-#    install_requires = [
-#        'numpy>=1.5.0',
-#        'PyTango>=7.2.2',
-#        'libpninx-python>=0.1.2'
-#        ],
-#)
 
 
         
