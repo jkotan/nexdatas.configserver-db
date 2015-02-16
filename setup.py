@@ -32,7 +32,7 @@ def read(fname):
 ## metadata for distutils
 SETUPDATA = dict(
     name = "nexdatas.configserver-db",
-    version = '1.6.1',
+    version = '1.10.0',
     author = "Jan Kotanski",
     author_email = "jankotan@gmail.com",
     description = ("Configuration Server  DataBase"),
