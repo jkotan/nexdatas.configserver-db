@@ -38,7 +38,7 @@ SETUPDATA = dict(
     description = ("Configuration Server  DataBase"),
     license = "GNU GENERAL PUBLIC LICENSE v3",
     keywords = "configuration MySQL writer Tango server nexus data",
-    url = "http://code.google.com/p/nexdatas/",
+    url = "https://github.com/jkotan/nexdatas/",
     data_files=[('share/nxsconfigserver', ['conf/my.cnf']),
                 ('share/nxsconfigserver', ['conf/mysql_create.sql'])
                 ],
