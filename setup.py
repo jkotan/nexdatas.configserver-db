@@ -15,24 +15,30 @@
 #
 #    You should have received a copy of the GNU General Public License
 #    along with nexdatas.  If not, see <http://www.gnu.org/licenses/>.
-## \file setup.py
-# nxsconfigserver-db installer 
+#
 
 """ setup.py for NXS configuration server """
 
 import os
 from distutils.core import setup
 
+from sphinx.setup_command import BuildDoc
 
-## reading a file
 def read(fname):
+    """ read the file
+
+    :param fname: readme file name
+    """
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+release = '1.10.0'
+version = ".".join(release.split(".")[:2])
+name = "NXSConfigServer-db"
 
-## metadata for distutils
+#: metadata for distutils
 SETUPDATA = dict(
     name = "nexdatas.configserver-db",
-    version = '1.10.0',
+    version = release,
     author = "Jan Kotanski",
     author_email = "jankotan@gmail.com",
     description = ("Configuration Server  DataBase"),
@@ -42,17 +48,21 @@ SETUPDATA = dict(
     data_files=[('share/nxsconfigserver', ['conf/my.cnf']),
                 ('share/nxsconfigserver', ['conf/mysql_create.sql'])
                 ],
-    long_description= read('README')
+    cmdclass={'build_sphinx': BuildDoc},
+    command_options={
+        'build_sphinx': {
+            'project': ('setup.py', name),
+            'version': ('setup.py', version),
+            'release': ('setup.py', release)}},
+    long_description=read('README.rst')
 )
 
 
-        
 
-## the main function
 def main():
+    """ the main function """
     setup(**SETUPDATA)
-        
+
 
 if __name__ == '__main__':
     main()
-
