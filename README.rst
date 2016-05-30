@@ -28,8 +28,8 @@ From sources
 
 Download the latest version of NeXuS Configuration Server from
 
-    https://github.com/jkotan/nexdatas/configserver/
-    https://github.com/jkotan/nexdatas/configserver-db/
+|     https://github.com/jkotan/nexdatas/configserver/
+|     https://github.com/jkotan/nexdatas/configserver-db/
 
 Extract the sources and run for both packages
 
@@ -43,6 +43,8 @@ To set database execute
 
 	  $ mysql < conf/mysql_create.sql
 
+with proper privileges.
+	  
 Debian packages
 ^^^^^^^^^^^^^^^
 
