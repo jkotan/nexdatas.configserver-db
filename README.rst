@@ -13,7 +13,7 @@ and components. It also gives possibility to select mandatory components
 and perform the process of component merging.
 
 | Source code: https://github.com/nexdatas/configserver
-| Web page: http://www.desy.de/~jkotan/nxsconfigserver
+| Web page: http://www.desy.de/~jkotan/nxsconfigserver-db/
 
 ------------
 Installation
@@ -29,12 +29,19 @@ From sources
 Download the latest version of NeXuS Configuration Server from
 
     https://github.com/jkotan/nexdatas/configserver/
+    https://github.com/jkotan/nexdatas/configserver-db/
 
-Extract the sources and run
+Extract the sources and run for both packages
 
 .. code:: bash
 
 	  $ python setup.py install
+
+To set database execute
+	  
+.. code:: bash
+
+	  $ mysql < conf/mysql_create.sql
 
 Debian packages
 ^^^^^^^^^^^^^^^
@@ -86,4 +93,7 @@ To set up  NeXus Configuration Server with the default configuration run
           $ nxsetup -x NXSConfigServer
 
 The *nxsetup* command comes from the **python-nxstools** package.
+It starts the NeXus Configuration Server and tries to find a proper value
+of the JSONSettings attribute.
+
 
