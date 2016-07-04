@@ -12,8 +12,8 @@ on a MySQL database. It allows to store XML configuration datasources
 and components. It also gives possibility to select mandatory components
 and perform the process of component merging.
 
-| Source code: https://github.com/nexdatas/configserver
-| Web page: http://www.desy.de/~jkotan/nxsconfigserver-db/
+| Source code: https://github.com/nexdatas/configserver-db
+| Web page: https://nexdatas.github.io/configserver-db
 
 ------------
 Installation
@@ -28,8 +28,8 @@ From sources
 
 Download the latest version of NeXuS Configuration Server from
 
-|     https://github.com/jkotan/nexdatas/configserver/
-|     https://github.com/jkotan/nexdatas/configserver-db/
+|     https://github.com/nexdatas/configserver
+|     https://github.com/jkotan/nexdatas/configserver-db
 
 Extract the sources and run for both packages
 
