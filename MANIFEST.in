@@ -1,4 +1,0 @@
-include README.rst
-include COPYRIGHT
-include conf/mysql_create.sql
-include conf/my.cnf
