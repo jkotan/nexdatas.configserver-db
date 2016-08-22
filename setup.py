@@ -24,6 +24,7 @@ from distutils.core import setup
 
 from sphinx.setup_command import BuildDoc
 
+
 def read(fname):
     """ read the file
 
@@ -31,20 +32,23 @@ def read(fname):
     """
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+#: (:obj:`str`) full release number
 release = '1.10.0'
+#: (:obj:`str`) release verion number
 version = ".".join(release.split(".")[:2])
+#: (:obj:`str`) program name
 name = "NXSConfigServer-db"
 
-#: metadata for distutils
+#: (:obj:`dict` <:obj:`str` , any >`) metadata for distutils
 SETUPDATA = dict(
-    name = "nexdatas.configserver-db",
-    version = release,
-    author = "Jan Kotanski",
-    author_email = "jankotan@gmail.com",
-    description = ("Configuration Server  DataBase"),
-    license = "GNU GENERAL PUBLIC LICENSE v3",
-    keywords = "configuration MySQL writer Tango server nexus data",
-    url = "https://github.com/jkotan/nexdatas/",
+    name="nexdatas.configserver-db",
+    version=release,
+    author="Jan Kotanski",
+    author_email="jankotan@gmail.com",
+    description=("Configuration Server  DataBase"),
+    license="GNU GENERAL PUBLIC LICENSE v3",
+    keywords="configuration MySQL writer Tango server nexus data",
+    url="https://github.com/jkotan/nexdatas/",
     data_files=[('share/nxsconfigserver', ['conf/my.cnf']),
                 ('share/nxsconfigserver', ['conf/mysql_create.sql'])
                 ],
@@ -56,7 +60,6 @@ SETUPDATA = dict(
             'release': ('setup.py', release)}},
     long_description=read('README.rst')
 )
-
 
 
 def main():
