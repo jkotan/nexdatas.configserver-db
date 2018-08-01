@@ -4,20 +4,20 @@ sudo: required
 dist: trusty
 
 env:
-  - OS_TYPE=debian8 PYTHON=2
-  - OS_TYPE=debian9 PYTHON=2
-  - OS_TYPE=ubuntu16.04 PYTHON=2
-  - OS_TYPE=ubuntu18.04 PYTHON=2
-  - OS_TYPE=debian8 PYTHON=3
   - OS_TYPE=debian9 PYTHON=3
-  #   - OS_TYPE=ubuntu16.04 PYTHON=3
+  - OS_TYPE=debian9 PYTHON=2
+  - OS_TYPE=debian8 PYTHON=3
+  - OS_TYPE=debian8 PYTHON=2
   - OS_TYPE=ubuntu18.04 PYTHON=3
+  - OS_TYPE=ubuntu18.04 PYTHON=2
+  - OS_TYPE=ubuntu16.04 PYTHON=2
+#   - OS_TYPE=ubuntu16.04 PYTHON=3
 
 services:
   - docker
 
-python:
-    - "2.7"
+# python:
+#    - "2.7"
     
 before_install:
   - chmod +x .travis/run.sh
