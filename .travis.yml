@@ -12,9 +12,21 @@ services:
   - docker
 
 python:
-  - "2.7"
+    - "2.7"
+    - "3.2"
+    - "3.3"
+    - "3.4"
+    - "3.5"
+    - "nightly"
 
-
+matrix:
+  allow_failures:
+    - python: "3.2"
+    - python: "3.3"
+    - python: "3.4"
+    - python: "3.5"
+    - python: "nightly"
+    
 before_install:
   - chmod +x .travis/run.sh
   - chmod +x .travis/install.sh
