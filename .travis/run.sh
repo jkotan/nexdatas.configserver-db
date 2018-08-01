@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "run nxsconfigserver-db"
-if [ $2 = "2" ]; then
+if [ $1 = "2" ]; then
     docker exec -it ndts python test/runtest.py
 else
     docker exec -it ndts python3 test/runtest.py
