@@ -30,8 +30,13 @@ docker exec -it --user root ndts service tango-db restart
 docker exec -it --user root ndts service tango-starter restart
 
 
-echo "install python-pytango"
-docker exec -it --user root ndts /bin/sh -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y   python-pytango'
+if [ $2 = "2" ]; then
+    echo "install python-pytango"
+    docker exec -it --user root ndts /bin/sh -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y   python-pytango'
+else
+    echo "install python3-pytango"
+    docker exec -it --user root ndts /bin/sh -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y   python3-pytango'
+fi
 if [ $? -ne "0" ]
 then
     exit -1
@@ -39,7 +44,11 @@ fi
 
 
 echo "install nxsconfigserver-db"
-docker exec -it --user root ndts python setup.py -q install
+if [ $2 = "2" ]; then
+    docker exec -it --user root ndts python setup.py -q install
+else
+    docker exec -it --user root ndts python3 setup.py -q install
+fi
 if [ $? -ne "0" ]
 then
     exit -1
