@@ -34,7 +34,7 @@ def read(fname):
 
 
 #: (:obj:`str`) full release number
-release = '1.10.0'
+release = '1.10.1'
 #: (:obj:`str`) release verion number
 version = ".".join(release.split(".")[:2])
 #: (:obj:`str`) program name

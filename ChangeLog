@@ -1,3 +1,7 @@
+2018-08-03 Jan Kotanski <jankotan@gmail.com>
+	* add tests for python3
+	* tagged as v1.10.1
+
 2015-02-16 Jan Kotanski <jankotan@gmail.com>
 	* adding selections table
 	* tagged as v1.10.0

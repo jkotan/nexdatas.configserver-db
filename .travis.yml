@@ -16,9 +16,6 @@ env:
 services:
   - docker
 
-# python:
-#    - "2.7"
-    
 before_install:
   - chmod +x .travis/run.sh
   - chmod +x .travis/install.sh
