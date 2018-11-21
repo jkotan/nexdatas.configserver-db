@@ -4,14 +4,16 @@ sudo: required
 dist: trusty
 
 env:
-  - OS_TYPE=debian9 PYTHON=3
-  - OS_TYPE=debian9 PYTHON=2
-  - OS_TYPE=debian8 PYTHON=3
-  - OS_TYPE=debian8 PYTHON=2
-  - OS_TYPE=ubuntu18.04 PYTHON=3
-  - OS_TYPE=ubuntu18.04 PYTHON=2
-  - OS_TYPE=ubuntu16.04 PYTHON=2
-#   - OS_TYPE=ubuntu16.04 PYTHON=3
+  - OS=debian10 PY=3
+  - OS=debian10 PY=2
+  - OS=debian9 PY=3
+  - OS=debian9 PY=2
+  - OS=debian8 PY=3
+  - OS=debian8 PY=2
+  - OS=ubuntu18.04 PY=3
+  - OS=ubuntu18.04 PY=2
+  - OS=ubuntu16.04 PY=2
+#   - OS=ubuntu16.04 PY=3
 
 services:
   - docker
@@ -21,12 +23,12 @@ before_install:
   - chmod +x .travis/install.sh
 
 before_script:
-  - docker build -t ndts .travis/${OS_TYPE}_py${PYTHON}
+  - docker build -t ndts .travis/${OS}_py${PY}
   - docker run  --name  ndts -d -it -v `pwd`:/home/tango  ndts
-  - .travis/install.sh ${OS_TYPE} ${PYTHON}
+  - .travis/install.sh ${OS} ${PY}
 
 script:
-  - .travis/run.sh ${PYTHON}
+  - .travis/run.sh ${PY}
 
 after-script:
   - docker stop ndts
