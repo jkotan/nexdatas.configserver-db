@@ -1,7 +1,6 @@
 language: python
 
-sudo: required
-dist: trusty
+dist: xenial
 
 env:
   - OS_TYPE=debian9 PYTHON=3
