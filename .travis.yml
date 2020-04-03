@@ -7,11 +7,12 @@ env:
   - OS=debian10 PY=2
   - OS=debian9 PY=3
   - OS=debian9 PY=2
-  - OS=debian8 PY=3
-  - OS=debian8 PY=2
   - OS=ubuntu18.04 PY=3
   - OS=ubuntu18.04 PY=2
-  - OS=ubuntu16.04 PY=2
+  - OS=ubuntu20.04 PY=3
+#   - OS=debian8 PY=3
+#   - OS=debian8 PY=2
+#   - OS=ubuntu16.04 PY=2
 #   - OS=ubuntu16.04 PY=3
 
 services:
