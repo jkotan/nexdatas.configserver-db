@@ -18,7 +18,7 @@ docker exec -it --user root ndts /bin/bash -c '$(service mysql start &) && sleep
 #    docker exec -it --user root ndts service mysql restart
 
 echo "install tango-db"
-docker exec -it --user root ndts /bin/sh -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y   tango-db tango-common; sleep 10'
+docker exec -it --user root ndts /bin/sh -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get install -y tango-db tango-common; sleep 10'
 if [ $? -ne "0" ]
 then
     exit -1
