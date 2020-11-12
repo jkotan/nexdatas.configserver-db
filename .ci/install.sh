@@ -33,7 +33,6 @@ fi
 docker exec  --user root ndts service tango-db restart
 docker exec --user root ndts service tango-starter restart
 
-
 if [ $2 = "2" ]; then
     echo "install python-pytango"
     docker exec --user root ndts /bin/bash -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y   python-pytango'
