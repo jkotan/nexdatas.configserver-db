@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-	system: [debian10, debian9, ubuntu20.04, ubuntu18.04]
+        os: [debian10, debian9, ubuntu20.04, ubuntu18.04]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -28,14 +28,14 @@ jobs:
         run: chmod +x .travis/run.sh
         run: chmod +x .travis/install.sh
       - name: Build the docker
-	env:
-	   OSYS: ${{ matrix.system }}
-	run: docker build -t ndts .ci/${OSYS}_py3
+        env:
+	   OSYS: ${{ matrix.os }}
+        run: docker build -t ndts .ci/${OSYS}_py3
       - name: Run the docker
-	run: docker run  --name  ndts -d -it -v `pwd`:/home/tango  ndts
+        run: docker run  --name  ndts -d -it -v `pwd`:/home/tango  ndts
       - name: install tango
-	env:
-	   OSYS: ${{ matrix.system }}
-	run: .ci/install.sh ${OSYS} 3
+        env:
+	   OSYS: ${{ matrix.os }}
+        run: .ci/install.sh ${OSYS} 3
       - name: run tests
-	run: .ci/run.sh 3
+        run: .ci/run.sh 3
