@@ -9,31 +9,31 @@ if [ $1 = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ]; then
 fi
 
 echo "stop mysql"
-docker exec -it --user root ndts service mysql stop
+docker exec  --user root ndts service mysql stop
 if [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ]; then
-    docker exec -it --user root ndts /bin/bash -c 'sudo usermod -d /var/lib/mysql/ mysql'
+    docker exec  --user root ndts /bin/bash -c 'sudo usermod -d /var/lib/mysql/ mysql'
 fi
 echo "start mysql"
-docker exec -it --user root ndts /bin/bash -c '$(service mysql start &) && sleep 30'
+docker exec  --user root ndts /bin/bash -c '$(service mysql start &) && sleep 30'
 #    docker exec -it --user root ndts service mysql restart
 
 echo "install tango-db update"
-docker exec -it --user root ndts /bin/bash -c 'apt-get  update'
+docker exec  --user root ndts /bin/bash -c 'apt-get  update'
 echo "install tango-db"
-docker exec -it --user root ndts /bin/bash -c 'DEBIAN_FRONTEND=noninteractive apt-get install -y tango-db tango-common; sleep 10'
+docker exec  --user root ndts /bin/bash -c 'DEBIAN_FRONTEND=noninteractive apt-get install -y tango-db tango-common; sleep 10'
 # if [ $? -ne "0" ]
 # then
 #     exit -1
 # fi
 echo "install tango servers"
-docker exec -it --user root ndts /bin/bash -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive;  apt-get -qq install -y  tango-starter tango-test liblog4j1.2-java'
+docker exec  --user root ndts /bin/bash -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive;  apt-get -qq install -y  tango-starter tango-test liblog4j1.2-java'
 # if [ $? -ne "0" ]
 # then
 #     exit -1
 # fi
 
-docker exec -it --user root ndts service tango-db restart
-docker exec -it --user root ndts service tango-starter restart
+docker exec  --user root ndts service tango-db restart
+docker exec --user root ndts service tango-starter restart
 
 
 if [ $2 = "2" ]; then
