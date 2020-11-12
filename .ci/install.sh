@@ -16,7 +16,6 @@ fi
 echo "start mysql"
 docker exec -it --user root ndts /bin/bash -c '$(service mysql start &) && sleep 30'
 #    docker exec -it --user root ndts service mysql restart
-fi
 
 echo "install tango-db"
 docker exec -it --user root ndts /bin/sh -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y   tango-db tango-common; sleep 10'
