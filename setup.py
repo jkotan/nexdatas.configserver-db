@@ -20,9 +20,13 @@
 """ setup.py for NXS configuration server """
 
 import os
+
 from distutils.core import setup
 
-from sphinx.setup_command import BuildDoc
+try:
+    from sphinx.setup_command import BuildDoc
+except Exception:
+    BuildDoc = None
 
 
 def read(fname):
@@ -34,7 +38,7 @@ def read(fname):
 
 
 #: (:obj:`str`) full release number
-release = '1.10.1'
+release = '1.10.3'
 #: (:obj:`str`) release verion number
 version = ".".join(release.split(".")[:2])
 #: (:obj:`str`) program name
@@ -42,17 +46,30 @@ name = "NXSConfigServer-db"
 
 #: (:obj:`dict` <:obj:`str` , any >`) metadata for distutils
 SETUPDATA = dict(
-    name="nexdatas.configserver-db",
+    name="nxsconfigserver-db",
     version=release,
     author="Jan Kotanski",
     author_email="jankotan@gmail.com",
     description=("Configuration Server  DataBase"),
     license="GNU GENERAL PUBLIC LICENSE v3",
     keywords="configuration MySQL writer Tango server nexus data",
-    url="https://github.com/jkotan/nexdatas/",
+    url="https://github.com/jkotan/nexdatas/nxsconfigserver-db",
     data_files=[('share/nxsconfigserver', ['conf/my.cnf']),
                 ('share/nxsconfigserver', ['conf/mysql_create.sql'])
                 ],
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Science/Research',
+        'Topic :: Scientific/Engineering :: Physics',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+    ],
     cmdclass={'build_sphinx': BuildDoc},
     command_options={
         'build_sphinx': {

@@ -21,7 +21,7 @@ Installation
 
 Install the dependencies:
 
-    MySQLdb, PyTango, sphinx
+|    MySQLdb, PyTango, sphinx
 
 From sources
 ^^^^^^^^^^^^
@@ -29,7 +29,7 @@ From sources
 Download the latest version of NeXuS Configuration Server from
 
 |     https://github.com/nexdatas/configserver
-|     https://github.com/jkotan/nexdatas/configserver-db
+|     https://github.com/nexdatas/configserver-db
 
 Extract the sources and run for both packages
 
@@ -38,13 +38,13 @@ Extract the sources and run for both packages
 	  $ python setup.py install
 
 To set database execute
-	  
+
 .. code-block:: console
 
 	  $ mysql < conf/mysql_create.sql
 
 with proper privileges.
-	  
+
 Debian packages
 ^^^^^^^^^^^^^^^
 
@@ -85,6 +85,26 @@ and
 
 for Component Selector and Sardana related packages.
 
+From pip
+^^^^^^^^
+
+To install it from pip you can
+
+.. code-block:: console
+
+   $ python3 -m venv myvenv
+   $ . myvenv/bin/activate
+
+   $ pip install nxsconfigserver-db
+
+Moreover it is also good to install **mysql** to be able to execute
+
+.. code-block:: console
+
+	  $ mysql < conf/mysql_create.sql
+
+where **mysql_create.sql** is installed in  **myvenv/share/nxsconfigserver**
+
 Setting NeXus Configuration Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -97,5 +117,3 @@ To set up  NeXus Configuration Server with the default configuration run
 The *nxsetup* command comes from the **python-nxstools** package.
 It starts the NeXus Configuration Server and tries to find a proper value
 of the JSONSettings attribute.
-
-

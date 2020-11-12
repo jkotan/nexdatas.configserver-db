@@ -1,3 +1,11 @@
+2019-10-11 Jan Kotanski <jankotan@gmail.com>
+	* update README
+	* tagged as v1.10.3
+
+2019-10-11 Jan Kotanski <jankotan@gmail.com>
+	* add support for pip
+	* tagged as v1.10.2
+
 2018-08-03 Jan Kotanski <jankotan@gmail.com>
 	* add tests for python3
 	* tagged as v1.10.1
