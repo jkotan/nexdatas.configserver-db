@@ -4,19 +4,21 @@
 if [ $1 = "ubuntu16.04" ]; then
     docker exec -it --user root ndts sed -i "s/\[mysqld\]/\[mysqld\]\nsql_mode = NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION/g" /etc/mysql/mysql.conf.d/mysqld.cnf
 fi
-if [ $1 = "ubuntu20.04" ]; then
+if [ $1 = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ]; then
     docker exec -it --user root ndts sed -i "s/\[mysql\]/\[mysqld\]\nsql_mode = NO_ZERO_IN_DATE,NO_ENGINE_SUBSTITUTION\ncharacter_set_server=latin1\ncollation_server=latin1_swedish_ci\n\[mysql\]/g" /etc/mysql/mysql.conf.d/mysql.cnf
 fi
 
-echo "restart mysql"
-if [ $1 = "debian9" ] || [ $1 = "debian10" ]; then
-    # workaround for a bug in debian9, i.e. starting mysql hangs
-    docker exec -it --user root ndts service mysql stop
-    docker exec -it --user root ndts /bin/sh -c '$(service mysql start &) && sleep 30'
-else
-    docker exec -it --user root ndts service mysql restart
+echo "stop mysql"
+docker exec -it --user root ndts service mysql stop
+if [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ]; then
+    docker exec -it --user root ndts /bin/bash -c 'sudo usermod -d /var/lib/mysql/ mysql'
+fi
+echo "start mysql"
+docker exec -it --user root ndts /bin/bash -c '$(service mysql start &) && sleep 30'
+#    docker exec -it --user root ndts service mysql restart
 fi
 
+echo "install tango-db"
 docker exec -it --user root ndts /bin/sh -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y   tango-db tango-common; sleep 10'
 if [ $? -ne "0" ]
 then
