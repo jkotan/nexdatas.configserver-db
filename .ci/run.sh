@@ -2,9 +2,9 @@
 
 echo "run nxsconfigserver-db"
 if [ $1 = "2" ]; then
-    docker exec -it ndts python test/runtest.py
+    docker exec  ndts python test/runtest.py
 else
-    docker exec -it ndts python3 test/runtest.py
+    docker exec  ndts python3 test/runtest.py
 fi    
 if [ $? -ne "0" ]
 then
