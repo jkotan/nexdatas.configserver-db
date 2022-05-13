@@ -2,6 +2,27 @@
 Welcome to NeXuS Configuration Server Database's documentation!
 ===============================================================
 
+|github workflow|
+|docs|
+|Pypi Version|
+|Python Versions|
+
+.. |github workflow| image:: https://github.com/nexdatas/configserver-db/actions/workflows/tests.yml/badge.svg
+   :target: https://github.com/nexdatas/configserver-db/actions
+   :alt:
+
+.. |docs| image:: https://img.shields.io/badge/Documentation-webpages-ADD8E6.svg
+   :target: https://nexdatas.github.io/configserver-db/index.html
+   :alt:
+
+.. |Pypi Version| image:: https://img.shields.io/pypi/v/nxsconfigserver-db.svg
+                  :target: https://pypi.python.org/pypi/nxsconfigserver-db
+                  :alt:
+
+.. |Python Versions| image:: https://img.shields.io/pypi/pyversions/nxsconfigserver-db.svg
+                     :target: https://pypi.python.org/pypi/nxsconfigserver-db/
+                     :alt:
+
 
 Authors: Jan Kotanski, Eugen Wintersberger, Halil Pasic
 
