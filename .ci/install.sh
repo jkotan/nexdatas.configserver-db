@@ -36,7 +36,7 @@ if [ "$2" = "2" ]; then
     docker exec --user root ndts /bin/bash -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y   python-pytango'
 else
     echo "install python3-pytango"
-    if [ "$1" = "debian10" ] || [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ]|| [ "$1" = "ubuntu21.04" ] || [ "$1" = "debian11" ] ; then
+    if [ "$1" = "debian10" ] || [ "$1" = "ubuntu22.04" ]|| [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ]|| [ "$1" = "ubuntu21.04" ] || [ "$1" = "debian11" ] ; then
 	docker exec  --user root ndts /bin/bash -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y   python3-tango'
     else
 	docker exec  --user root ndts /bin/bash -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y   python3-pytango'
