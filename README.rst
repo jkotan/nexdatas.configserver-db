@@ -7,12 +7,12 @@ Welcome to NeXuS Configuration Server Database's documentation!
 |Pypi Version|
 |Python Versions|
 
-.. |github workflow| image:: https://github.com/nexdatas/configserver-db/actions/workflows/tests.yml/badge.svg
-   :target: https://github.com/nexdatas/configserver-db/actions
+.. |github workflow| image:: https://github.com/nexdatas/nxsconfigserver-db/actions/workflows/tests.yml/badge.svg
+   :target: https://github.com/nexdatas/nxsconfigserver-db/actions
    :alt:
 
 .. |docs| image:: https://img.shields.io/badge/Documentation-webpages-ADD8E6.svg
-   :target: https://nexdatas.github.io/configserver-db/index.html
+   :target: https://nexdatas.github.io/nxsconfigserver-db/index.html
    :alt:
 
 .. |Pypi Version| image:: https://img.shields.io/pypi/v/nxsconfigserver-db.svg
@@ -33,8 +33,8 @@ on a MySQL database. It allows to store XML configuration datasources
 and components. It also gives possibility to select mandatory components
 and perform the process of component merging.
 
-| Source code: https://github.com/nexdatas/configserver-db
-| Web page: https://nexdatas.github.io/configserver-db
+| Source code: https://github.com/nexdatas/nxsconfigserver-db
+| Web page: https://nexdatas.github.io/nxsconfigserver-db
 
 ------------
 Installation
@@ -49,8 +49,8 @@ From sources
 
 Download the latest version of NeXuS Configuration Server from
 
-|     https://github.com/nexdatas/configserver
-|     https://github.com/nexdatas/configserver-db
+|     https://github.com/nexdatas/nxsconfigserver
+|     https://github.com/nexdatas/nxsconfigserver-db
 
 Extract the sources and run for both packages
 
