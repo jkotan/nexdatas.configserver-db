@@ -74,6 +74,7 @@ SETUPDATA = dict(
         'Programming Language :: Python :: 3.10',
     ],
     cmdclass={'build_sphinx': BuildDoc},
+    packages=[],
     command_options={
         'build_sphinx': {
             'project': ('setup.py', name),
