@@ -24,6 +24,8 @@ if [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "ubuntu21.04
 fi
 docker exec  --user root ndts service tango-db restart
 
+docker exec  --user root ndts service tango-db status
+
 
 echo "install tango servers"
 docker exec  --user root ndts /bin/bash -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive;  apt-get -qq install -y  tango-starter tango-test liblog4j1.2-java'
