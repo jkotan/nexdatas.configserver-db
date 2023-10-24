@@ -21,6 +21,7 @@ if [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "ubuntu21.04
     # docker exec  --user tango ndts /bin/bash -c '/usr/lib/tango/DataBaseds 2 -ORBendPoint giop:tcp::10000  &'
     docker exec  --user root ndts /bin/bash -c 'echo -e "[client]\nuser=root\npassword=rootpw" > /root/.my.cnf'
     docker exec  --user root ndts /bin/bash -c 'echo -e "[client]\nuser=tango\nhost=127.0.0.1\npassword=rootpw" > /var/lib/tango/.my.cnf'
+    docker exec  --user root ndts /bin/bash -c 'mysql --database="mysql" --execute="use mysql; create user  \"tango\"@\"localhost\"  IDENTIFIED BY \"rootpw\""'
 fi
 docker exec  --user root ndts service tango-db restart
 
