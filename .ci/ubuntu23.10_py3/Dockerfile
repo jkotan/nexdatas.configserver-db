@@ -26,7 +26,7 @@ RUN /bin/bash -c 'export DEBIAN_FRONTEND=noninteractive; debconf-set-selections 
 RUN  sed -i "s/\[mysql\]/\[mysqld\]\nsql_mode = NO_ZERO_IN_DATE,NO_ENGINE_SUBSTITUTION\ncharacter_set_server=latin1\ncollation_server=latin1_swedish_ci\n\[mysql\]/g" /etc/mysql/conf.d/mysql.cnf
 
 ENV PKG_CONFIG_PATH=/home/tango/lib/pkgconfig
-ENV MYSQL_HOST=127.0.0.1
+# ENV MYSQL_HOST=127.0.0.1
 USER tango
 WORKDIR /home/tango
 

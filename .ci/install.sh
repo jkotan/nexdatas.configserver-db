@@ -17,10 +17,15 @@ echo "install tango-db"
 docker exec  --user root ndts /bin/bash -c 'apt-get -qq update; export DEBIAN_FRONTEND=noninteractive; apt-get -qq install -y tango-db tango-common; sleep 10'
 if [ "$?" -ne "0" ]; then exit 255; fi
 
-if [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "ubuntu21.04" ] || [ "$1" = "ubuntu21.10" ] || [ "$1" = "ubuntu22.04" ] || [ "$1" = "ubuntu23.10" ]; then
+if [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "ubuntu21.04" ] || [ "$1" = "ubuntu21.10" ] || [ "$1" = "ubuntu22.04" ] || [ "$1" = "ubuntu23.04" ]; then
     # docker exec  --user tango ndts /bin/bash -c '/usr/lib/tango/DataBaseds 2 -ORBendPoint giop:tcp::10000  &'
     docker exec  --user root ndts /bin/bash -c 'echo -e "[client]\nuser=root\npassword=rootpw" > /root/.my.cnf'
     docker exec  --user root ndts /bin/bash -c 'echo -e "[client]\nuser=tango\nhost=127.0.0.1\npassword=rootpw" > /var/lib/tango/.my.cnf'
+fi
+if [ "$1" = "ubuntu23.10" ]; then
+    # docker exec  --user tango ndts /bin/bash -c '/usr/lib/tango/DataBaseds 2 -ORBendPoint giop:tcp::10000  &'
+    docker exec  --user root ndts /bin/bash -c 'echo -e "[client]\nuser=root\npassword=rootpw" > /root/.my.cnf'
+    docker exec  --user root ndts /bin/bash -c 'echo -e "[client]\nuser=tango\npassword=rootpw" > /var/lib/tango/.my.cnf'
     docker exec  --user root ndts /bin/bash -c 'mysql --database="mysql" --execute="use mysql; create user  \"tango\"@\"localhost\"  IDENTIFIED BY \"rootpw\""'
 fi
 docker exec  --user root ndts service tango-db restart
