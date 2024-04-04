@@ -6,7 +6,7 @@ if [ "$1" = "debian11" ] || [ "$1" = "debian12" ]; then
     docker exec --user root ndts service mariadb restart
 else
     docker exec --user root ndts service mysql stop
-    if [ "$1" = "ubuntu24.04" ] || [ "$1" = "ubuntu22.04" ] || [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "ubuntu21.04" ]; then
+    if  [ "$1" = "ubuntu22.04" ] || [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "ubuntu21.04" ]; then
 	docker exec --user root ndts /bin/bash -c 'usermod -d /var/lib/mysql/ mysql'
     fi
     docker exec --user root ndts service mysql start
