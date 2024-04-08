@@ -9,7 +9,7 @@ RUN wget --retry-connrefused http://repos.pni-hdri.de/debian_repo.pub.gpg
 RUN apt-key add debian_repo.pub.gpg
 RUN add-apt-repository "deb http://repos.pni-hdri.de/apt/debian buster main" -y
 RUN apt-get -qq update && apt-get -qq -y dist-upgrade
-RUN apt-get -qq update && apt-get -qq install -y default-mysql-client  python3-h5py  python3-sphinx  apt-utils debconf-utils net-tools  omniidl libomniorb4-dev libcos4-dev libomnithread4-dev libzmq3-dev
+RUN apt-get -qq update && apt-get -qq install -y default-mysql-client  python3-h5py  python3-sphinx  apt-utils debconf-utils net-tools  omniidl libomniorb4-dev libcos4-dev libomnithread4-dev libzmq3-dev python3-setuptools
 RUN useradd -ms /bin/bash tango
 RUN  /bin/bash -c 'export DEBIAN_FRONTEND=noninteractive; debconf-set-selections <<< "mysql-server mysql-server/root_password password rootpw"; debconf-set-selections <<< "mysql-server mysql-server/root_password_again password rootpw"; debconf-set-selections <<< "mariadb-server mysql-server/root_password password rootpw"; debconf-set-selections <<< "mariadb-server mysql-server/root_password_again password rootpw"; debconf-get-selections |grep mysql '
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qq install -y default-mysql-server adduser
