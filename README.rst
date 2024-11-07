@@ -69,7 +69,7 @@ with proper privileges.
 Debian packages
 ^^^^^^^^^^^^^^^
 
-Debian Bookworm, Bullseye, Buster as well as Lunar, Jammy, Focal packages can be found in the HDRI repository.
+Debian Bookworm, Bullseye, Buster as well as Oracular, Noble, Jammy packages can be found in the HDRI repository.
 
 To install the debian packages, add the PGP repository key
 
@@ -90,19 +90,19 @@ Finally,
 .. code-block:: console
 
 	  $ apt-get update
-	  $ apt-get install python-nxsconfigserver nxsconfigserver-db
+	  $ apt-get install python3-nxsconfigserver nxsconfigserver-db
 
 To instal other NexDaTaS packages
 
 .. code-block:: console
 
-	  $ apt-get install python-nxswriter nxsconfigtool nxstools
+	  $ apt-get install python3-nxswriter nxsconfigtool nxstools
 
 and
 
 .. code-block:: console
 
-	  $ apt-get install python-nxsrecselector nxselector python-sardana-nxsrecorder
+	  $ apt-get install python3-nxsrecselector nxselector python3-sardana-nxsrecorder
 
 for Component Selector and Sardana related packages.
 
@@ -135,6 +135,6 @@ To set up  NeXus Configuration Server with the default configuration run
 
           $ nxsetup -x NXSConfigServer
 
-The *nxsetup* command comes from the **python-nxstools** package.
+The *nxsetup* command comes from the **python3-nxstools** package.
 It starts the NeXus Configuration Server and tries to find a proper value
 of the JSONSettings attribute.
